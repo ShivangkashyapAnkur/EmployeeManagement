@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "EmployeeMangement";
+}
+@using EmployeeManagement.Application.DTO
+@using EmployeeManagement.Domain.Entities
+
+@model IEnumerable<Employee>;
+<style>
+    .Employee {
+        background-image: url("https://my.alfred.edu/zoom/_images/foster-lake.jpg");
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        padding: 20px; 
+        color: white;
+        min-height: 100
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .table {
+        background-color: rgba(0, 0, 0, 0.5); 
+        border-radius: 10px; 
+        color: white;
+
+    .btn-primary {
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: rgba(0, 0, 0, 0.7); 
+    }
+</style>
+
+<div class="Employee">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.Name</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Phone</td>
+                    <td>@employee.Gender</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = employee.Id })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = employee.Id })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Add Employee</a>
+</div>
