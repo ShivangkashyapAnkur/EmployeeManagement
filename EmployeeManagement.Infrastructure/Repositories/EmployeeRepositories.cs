@@ -19,16 +19,6 @@ namespace EmployeeManagement.Infrastructure.Repositories
               _context = context;
            }
 
-        public Task<IEnumerable<object>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        //    public async Task<IEnumerable<Employee>> GetAllAsync()
-        //    {
-        //        return await _context.Employees.ToListAsync();
-        //    }
-
         public async Task<Employee> GetByIdAsync(int id)
         {
             return await _context.Employees.FindAsync(id);

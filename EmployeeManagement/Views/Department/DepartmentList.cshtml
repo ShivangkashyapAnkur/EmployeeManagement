@@ -1,0 +1,31 @@
+﻿@using EmployeeManagement.Application.DTO
+@using EmployeeManagement.Domain.Entities
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Department>;
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.Id</td>
+                <td>@department.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = department.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = department.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" href="@Url.Action("Create")">Add Department</a>

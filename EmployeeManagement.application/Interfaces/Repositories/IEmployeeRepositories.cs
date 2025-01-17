@@ -10,7 +10,7 @@ namespace EmployeeManagement.Application.Interfaces.Repositories
 {
     public interface IEmployeeRepositories
     {
-        Task<IEnumerable<object>> GetAllAsync();
+      
         public Task <IEnumerable<Employee>> GetAllEmployee();
         Task AddAsync(Employee employee);
         Task<Employee> GetByIdAsync(int id);
